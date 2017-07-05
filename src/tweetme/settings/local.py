@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     #need to pip install crispy_from first
     'crispy_forms',
     'tweets',
+    'rest_framework',
+    'accounts',
 ]
 
 MIDDLEWARE = [
