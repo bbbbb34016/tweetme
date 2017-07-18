@@ -14,9 +14,9 @@ from django.core.wsgi import get_wsgi_application
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "tweetme.settings")
 
 from django.core.wsgi import get_wsgi_application
-#from dj_static import Cling
+from whitenoise import WhiteNoise
 
 application = get_wsgi_application()
-#application = (application)
+application = WhiteNoise(application)
 
 
