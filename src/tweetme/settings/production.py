@@ -24,7 +24,7 @@ db_from_env = dj_database_url.config(conn_max_age=500)
 SECRET_KEY = '!su)-n5pub)7sm-41(=ws1&^n^%p=g+emj97a&8amny5c0h4(h'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = []
 
