@@ -21,7 +21,7 @@ from tweets.views import TweetListView
 from django.conf.urls.static import static
 
 from .views import home
-
+admin.autodiscover()
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', TweetListView.as_view(),name='home'),# project homepage
