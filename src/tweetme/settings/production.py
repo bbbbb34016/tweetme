@@ -29,9 +29,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__fil
 SECRET_KEY = '!su)-n5pub)7sm-41(=ws1&^n^%p=g+emj97a&8amny5c0h4(h'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['']
 
 
 # Application definition
@@ -125,7 +125,7 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
-db_from_env = dj_database_url.config(conn_max_age=500)
+db_from_env = dj_database_url(default='DATABASE_URL_HERE')
 DATABASES['default'].update(db_from_env)
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
