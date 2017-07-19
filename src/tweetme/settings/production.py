@@ -129,3 +129,4 @@ STATICFILES_DIRS = [
 ]
 STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR),"static-serve")
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+CRISPY_TEMPLATE_PACK = "bootstrap3"
