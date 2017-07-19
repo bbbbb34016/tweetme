@@ -127,4 +127,4 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR,"static-storage")
 ]
 STATIC_ROOT = os.path.join(BASE_DIR,"static-serve")
-STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorag'
+STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
