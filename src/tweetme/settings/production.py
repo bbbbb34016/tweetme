@@ -46,7 +46,7 @@ INSTALLED_APPS = [
     'tweets',
     'rest_framework',
     'accounts',
-    'tweetme',
+
 ]
 
 MIDDLEWARE = [
