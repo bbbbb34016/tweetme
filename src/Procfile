@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 web: gunicorn tweetme.wsgi --log-file -
+=======
+web: gunicorn tweetme.wsgi --log-file -
+>>>>>>> 4cb9e86daaf75cf72f3b4fe15010e8f870ae0efe
