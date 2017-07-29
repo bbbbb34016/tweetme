@@ -7,6 +7,10 @@ $(document).ready(function(){
     loadTweetContainer("tweet-container")
 
 });
+
+
+
+
 </script>
 {% endblock script %}
 
@@ -21,25 +25,8 @@ $(document).ready(function(){
             <p>Followers: {{ object.followed_by.all.count }}</p>
             <p><a class="btn btn-link" href="{{ object.profile.get_follow_url }}">
                 {% if following %} Unfollow {% else %}Follow{% endif %}</a></p>
-        </div>
-        <div class="col-sm-9 col-xs-12 pull-left">
-            <h1>Tweets</h1>
-            <div id="tweet-container" data-url="/api/{{ object.username}}/tweet/">
 
-            </div>
-            <a href="#" id="loadmore">Load more Tweets here</a>
-
-
-
-            {% for tweet in object.tweet_set.all %}
-            {{ tweet }}<br/>
-
-            {% endfor %}
-
-
-
-
-            <hr/>
+             <hr/>
             <h1>Following({{object.profile.get_following.count}})</h1>
             {% for user in object.profile.get_following %}
             <a href="/{{user.username}}">{{ user.username }}</a><br/>
@@ -54,6 +41,20 @@ $(document).ready(function(){
             {% empty %}
             <h4>Not followed by any users</h4>
             {% endfor %}
+        </div>
+        <div class="col-sm-9 col-xs-12 pull-left">
+            <h1>Tweets</h1>
+            <div id="tweet-container" data-url="/api/{{ object.username}}/tweet/">
+
+            </div>
+            <a href="#" id="loadmore">Load more Tweets here</a>
+            <hr/>
+
+            {% for tweet in object.tweet_set.all %}
+            {{ tweet }}<br/>
+
+            {% endfor %}
+
         </div>
     </div>
 {% endblock content %}

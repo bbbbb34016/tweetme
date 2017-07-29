@@ -25,10 +25,12 @@ admin.autodiscover()
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', TweetListView.as_view(),name='home'),# project homepage
-    url(r'^',include('accounts.urls',namespace = 'profiles')),
+
     url(r'^tags/(?P<hashtag>.*)/$', HashTagView.as_view(), name='hashtag'),
     url(r'^tweet/',include('tweets.urls',namespace = 'tweet')),
     url(r'^api/tweet/',include('tweets.api.urls',namespace = 'tweet-api')),
+    url(r'^api/',include('accounts.api.urls',namespace = 'profiles-api')),
+    url(r'^',include('accounts.urls',namespace = 'profiles')),
 ]
 if settings.DEBUG:
     urlpatterns+=(static(settings.STATIC_URL, document_root=settings.STATIC_ROOT))
