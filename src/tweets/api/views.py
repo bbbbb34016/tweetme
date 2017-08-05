@@ -33,6 +33,21 @@ class RetweetAPIView(APIView):
             message = "Cannot retweet the same in 1 day"
         return Response({"message":message},status=400)
 
+class TweetDetailAPIView(generics.ListAPIView):
+    queryset = Tweet.objects.all()
+    serializer_class = TweetModelSerializer
+    pagination_class = StandardResultsPagination
+    permisstion_classes = [permissions.AllowAny]
+
+    def get_queryset(self,*args,**kwargs):
+        tweet_id = self.kwargs.get("pk")
+        qs =  Tweet.objects.filter(pk=tweet_id)
+        if qs.exists() and qs.count() == 1:
+            parent_obj = qs.first()
+            qs1 = parent_obj.get_children()
+            qs = (qs|qs1).distinct().extra(select={"parent_id_null":'parent_id IS NULL'})
+
+        return qs.order_by("-parent_id_null","-timestamp")
 
 class TweetCreateAPIView(generics.CreateAPIView):
     serializer_class = TweetModelSerializer
