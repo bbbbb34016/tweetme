@@ -140,7 +140,7 @@
         })
     })
 function updateHashLinks(){
-    $(".media-body").each(function(data){
+    $(".content").each(function(data){
         var hashtagRegex = /(^|\s)#([\w\d-]+)/g
         var usernameRegex = /(^|\s)@([\w\d-]+)/g
         var currentHtml = $(this).html()
@@ -395,7 +395,7 @@ function parseTweets(){
         function doneSearchTyping(){
             if(searchQuery){
               //do search
-              var url = '/tweet/search/?q=' + searchQuery
+              var url = '/search/?q=' + searchQuery
               document.location.href = url;
             }
         }
