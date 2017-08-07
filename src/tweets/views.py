@@ -60,7 +60,7 @@ class TweetDetailView(DetailView):
     #     obj = get_object_or_404(Tweet, pk=pk)
     #     return Tweet.objects.get(id=pk)
 
-class TweetListView(ListView):
+class TweetListView(LoginRequiredMixin,ListView):
     #template_name = "tweets/list_view.html"
     #queryset = Tweet.objects.all()
 

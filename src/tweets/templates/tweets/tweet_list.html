@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-
+{% load recommended %}
 <style>
 #tweet-container{
 
@@ -26,8 +26,11 @@ $(document).ready(function(){
 
 
     <div class='row'>
-        <div class="col-sm-3 col-xs-12 pull-left" style="background-color:yellow;">
+        <div class="col-sm-3 col-xs-12 pull-left" >
             <h1>{{ request.user }}</h1>
+            <br/>
+            <p class="lead">Recommended Users</p>
+            {% recommended request.user %}
         </div>
         <div class='col-sm-9 '>
             {% if not request.GET.q %}
